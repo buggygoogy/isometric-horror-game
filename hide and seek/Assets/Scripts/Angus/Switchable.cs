@@ -11,7 +11,7 @@ public class Switchable : interactable
         Switch = !Switch;
         if (Switch)
         {
-            light.intensity = 1;
+            light.intensity = 2;
         }
         else
         {

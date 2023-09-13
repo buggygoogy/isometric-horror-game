@@ -861,7 +861,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 50
+  m_FocalLength: 54.1285
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -1885,7 +1885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19fd7150bf495914f841b12e50831fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Switch: 0
+  Switch: 1
   light: {fileID: 1436429144}
 --- !u!43 &1470531540
 Mesh:
