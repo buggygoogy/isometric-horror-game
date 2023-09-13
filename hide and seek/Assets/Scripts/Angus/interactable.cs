@@ -15,7 +15,8 @@ public abstract class interactable : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            other.GetComponent<interact>().OpenInteractIcon();
+            interact interactObject = other.GetComponent<interact>();
+            interactObject.interactObject = this;
             Debug.Log("playerInside");
         }
     }
@@ -23,7 +24,8 @@ public abstract class interactable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<interact>().CloseInteractIcon();
+            interact interactObject = other.GetComponent<interact>();
+            interactObject.interactObject = null;
             Debug.Log("playerOustide");
         }
     }
