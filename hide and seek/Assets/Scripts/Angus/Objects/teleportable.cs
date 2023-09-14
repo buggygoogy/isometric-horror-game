@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class teleportable : interactable
 {
-    public Transform teleportPosition;
     public Transform cameraPosition;
     public GameObject camera;
 
@@ -17,7 +16,6 @@ public class teleportable : interactable
 
     IEnumerator teleportPlayer()
     {
-        //player.transform.position = new Vector3(teleportPosition.position.x, player.transform.position.y, teleportPosition.position.z);
         camera.transform.position = cameraPosition.position;
         yield break;
     }
