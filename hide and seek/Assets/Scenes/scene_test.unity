@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9076839}
   m_LocalRotation: {x: 0.11507511, y: -0.88111955, z: 0.27781594, w: 0.3649716}
-  m_LocalPosition: {x: 3.226593, y: 3.9484575, z: 0.12544799}
+  m_LocalPosition: {x: 3.91, y: 2.57, z: 0.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -646,8 +646,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549577840}
-  m_LocalRotation: {x: 0.3007058, y: -0.000000029802322, z: 0.000000007450581, w: 0.95371693}
-  m_LocalPosition: {x: -4.700001, y: 3.9, z: -0.20000267}
+  m_LocalRotation: {x: 0.30070582, y: -0.000000029802322, z: 0.000000022351742, w: 0.95371693}
+  m_LocalPosition: {x: -2.1775622, y: 2.5215425, z: -1.1675439}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -850,7 +850,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24582
+  m_Name: pb_Mesh26458
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -2167,9 +2167,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 3
-  interactMask:
-    serializedVersion: 2
-    m_Bits: 128
   interactObject: {fileID: 0}
 --- !u!1 &1451157484
 GameObject:
