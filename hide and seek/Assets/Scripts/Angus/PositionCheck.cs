@@ -5,7 +5,6 @@ using UnityEngine;
 public class PositionCheck : MonoBehaviour
 {
     public GameObject groundCheck;
-    public CameraController camera;
     public LayerMask groundLayer;
 
     float distance = 1;
