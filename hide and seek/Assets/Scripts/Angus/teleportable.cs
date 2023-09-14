@@ -6,8 +6,6 @@ public class teleportable : interactable
 {
     public Transform teleportPosition;
     public Transform cameraPosition;
-
-    public GameObject player;
     public GameObject camera;
 
 
@@ -19,11 +17,12 @@ public class teleportable : interactable
 
     IEnumerator teleportPlayer()
     {
-        player.GetComponent<CapsuleCollider>().enabled = false;
-        player.transform.position = new Vector3(teleportPosition.position.x, player.transform.position.y, teleportPosition.position.z);
+        //player.transform.position = new Vector3(teleportPosition.position.x, player.transform.position.y, teleportPosition.position.z);
         camera.transform.position = cameraPosition.position;
-        player.GetComponent<CapsuleCollider>().enabled = true;
         yield break;
     }
-
+    private void OnTriggerEnter(Collider other)
+    {
+        Interact();
+    }
 }
