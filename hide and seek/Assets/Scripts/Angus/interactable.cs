@@ -5,9 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public abstract class interactable : MonoBehaviour
 {
-    private void Reset()
+
+    public IEnumerator ResetTrigger()
     {
+        GetComponent<BoxCollider>().isTrigger = false;
+        yield return new WaitForSeconds(1);
         GetComponent<BoxCollider>().isTrigger = true;
+        yield break;
     }
     public abstract void Interact();
 
