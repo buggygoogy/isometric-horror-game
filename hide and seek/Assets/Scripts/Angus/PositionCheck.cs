@@ -16,12 +16,5 @@ public class PositionCheck : MonoBehaviour
         Vector3 direction = Vector3.down;
         Ray theRay = new Ray(groundCheck.transform.position, transform.TransformDirection(direction * distance));
         Debug.DrawRay(groundCheck.transform.position, transform.TransformDirection(direction * distance));
-        if (Physics.Raycast(theRay, out RaycastHit hit, distance, groundLayer))
-        {
-            if(hit.transform.GetComponent<Room>() != null)
-            {
-                
-            }
-        }
     }
 }

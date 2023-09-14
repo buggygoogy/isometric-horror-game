@@ -68069,7 +68069,7 @@ GameObject:
   - component: {fileID: 422340992926896061}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68117,7 +68117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  walkSpeed: 3
+  walkSpeed: 1
   angle: 0
   direction: {x: 0, y: 0}
 --- !u!54 &422340992926896060
