@@ -1829,6 +1829,7 @@ GameObject:
   - component: {fileID: 851145710}
   - component: {fileID: 851145709}
   - component: {fileID: 851145708}
+  - component: {fileID: 851145711}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1954,6 +1955,28 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &851145711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851145706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29d704fbeca007147a5343bf052451fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  Target: {fileID: 422340992926602199}
+  Camera: {fileID: 851145710}
+  FadedAlpha: 0.5
+  RetainShadows: 1
+  TargetPositionOffset: {x: 0, y: 1, z: 0}
+  FadeSpeed: 3
+  ObjectsBlockingView: []
 --- !u!1 &888012797
 GameObject:
   m_ObjectHideFlags: 0
@@ -2967,11 +2990,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aff0437bbd4b6d4ab06eaf045eb92af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeSpeed: 10
-  fadeAmount: 0.5
-  originalOpacity: 0
-  Mat: {fileID: 0}
-  DoFade: 0
 --- !u!1 &1337680641
 GameObject:
   m_ObjectHideFlags: 0
@@ -5586,6 +5604,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <IsHiding>k__BackingField: 0
+  <facingDirection>k__BackingField: {x: 0, y: 0}
+  <moveVelocity>k__BackingField: {x: 0, y: 0, z: 0}
   walkSpeed: 3
 --- !u!137 &422340992930071361
 SkinnedMeshRenderer:
@@ -7169,7 +7189,8 @@ GameObject:
   - component: {fileID: 6371130053604427543}
   - component: {fileID: 9191347999496254429}
   - component: {fileID: 9191347999496254430}
-  m_Layer: 0
+  - component: {fileID: 9191347999496254431}
+  m_Layer: 8
   m_Name: wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7804,6 +7825,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.0000007, y: 2, z: 0.50000024}
   m_Center: {x: -1.0000001, y: 1, z: 0.000000230968}
+--- !u!114 &9191347999496254431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7245946824141771272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed5bb7e06082ebe4180d78dee3224efd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Renderers: []
+  Position: {x: 0, y: 0, z: 0}
+  Materials: []
+  InitialAlpha: 0
 --- !u!23 &9200990504321400620
 MeshRenderer:
   m_ObjectHideFlags: 0
