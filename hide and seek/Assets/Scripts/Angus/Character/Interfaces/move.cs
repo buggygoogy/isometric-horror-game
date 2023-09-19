@@ -11,8 +11,6 @@ public class move : MonoBehaviour
 
     public Vector2 direction;
 
-    Quaternion rotation;
-
 
     // Start is called before the first frame update
     void Start()

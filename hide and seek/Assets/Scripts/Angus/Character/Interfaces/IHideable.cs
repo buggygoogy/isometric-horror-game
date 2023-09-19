@@ -13,5 +13,5 @@ public interface IHideable
         Cabinet
     }
     void Hide(HidingType _hidingType);
-    void UnHide();
+    void UnHide(HidingType _hidingType);
 }
