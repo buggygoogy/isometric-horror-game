@@ -5,7 +5,7 @@ using UnityEngine;
 public class Switchable : interactable
 {
     public bool Switch;
-    public Light light;
+    public new Light light;
     public override void Interact()
     {
         Switch = !Switch;
