@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : PlayerState
+public class PlayerHidingState : PlayerState
 {
-    public PlayerIdleState(Player player, PlayerStateMachine playerStateMachine) : base(player, playerStateMachine)
+    public PlayerHidingState(Player player, PlayerStateMachine playerStateMachine) : base(player, playerStateMachine)
     {
 
     }
@@ -23,31 +23,17 @@ public class PlayerIdleState : PlayerState
     {
         base.ExitState();
     }
-
     public override void FrameUpdate()
     {
-        base.FrameUpdate();
-        if(GetInputVelocity())
+        if(Input.GetKey(KeyCode.E))
         {
-            player.stateMachine.ChangeState(player.WalkState);
+            player.SetUnHide(IHideable.HidingType.None);
+            player.stateMachine.ChangeState(player.IdleState);
         }
-        else
-        {
-            player.PlayerMove(player.moveVelocity);
-        }
-
-
-
     }
 
     public override void PhysicsUpdate()
     {
-        base.PhysicsUpdate();
+        
     }
-
-    public bool GetInputVelocity()
-    {
-        return player.moveVelocity != Vector3.zero;
-    }
-
 }

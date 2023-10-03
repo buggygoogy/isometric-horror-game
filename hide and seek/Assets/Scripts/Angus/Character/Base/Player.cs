@@ -16,6 +16,8 @@ public class Player : MonoBehaviour, IHideable, IDamageable, Imoveable
 
     public float angle { get ; set ; }
 
+    [field: SerializeField] public IHideable.HidingType _hiding { get; set; }
+
     public int walkSpeed = 3;
 
     #region StateMachineVariables
@@ -23,6 +25,7 @@ public class Player : MonoBehaviour, IHideable, IDamageable, Imoveable
     public PlayerIdleState IdleState { get; set; }
     public PlayerWalkState WalkState { get; set; }
     public PlayerRunState RunState { get; set; }
+    public PlayerHidingState HidingState { get; set; }
 
     #endregion
 
@@ -33,6 +36,7 @@ public class Player : MonoBehaviour, IHideable, IDamageable, Imoveable
         IdleState = new PlayerIdleState(this, stateMachine);
         WalkState = new PlayerWalkState(this, stateMachine);
         RunState = new PlayerRunState(this, stateMachine);
+        HidingState = new PlayerHidingState(this, stateMachine);
     }
     void Start()
     {
@@ -54,14 +58,16 @@ public class Player : MonoBehaviour, IHideable, IDamageable, Imoveable
 
 
 
-    public void Hide(IHideable.HidingType _hidingType)
+    public void SetHide(IHideable.HidingType _hidingType)
     {
-        
+        _hiding = _hidingType;
+        this.stateMachine.ChangeState(this.HidingState);
+
     }
 
-    public void UnHide(IHideable.HidingType _hidingType)
+    public void SetUnHide(IHideable.HidingType _hidingType)
     {
-        
+        _hiding = _hidingType;
     }
 
     public void Damage()

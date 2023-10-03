@@ -12,6 +12,7 @@ public interface IHideable
         Bed,
         Cabinet
     }
-    void Hide(HidingType _hidingType);
-    void UnHide(HidingType _hidingType);
+    void SetHide(HidingType _hidingType);
+    void SetUnHide(HidingType _hidingType);
+
 }
