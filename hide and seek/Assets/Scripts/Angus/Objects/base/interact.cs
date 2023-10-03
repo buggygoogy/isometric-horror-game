@@ -6,7 +6,7 @@ public class interact : MonoBehaviour
 {
     public float distance;
 
-    public interactable interactObject;
+    public ItemToInteract interactObject;
 
 
     private void Update()

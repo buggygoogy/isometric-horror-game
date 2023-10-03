@@ -25,10 +25,22 @@ public class PlayerHidingState : PlayerState
     }
     public override void FrameUpdate()
     {
-        if(Input.GetKey(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
+            if (player.delayTimeToToggleHide > 0)
+                return;
             player.SetUnHide(IHideable.HidingType.None);
             player.stateMachine.ChangeState(player.IdleState);
+            player.IsHiding = false;
+        }
+        if (player.delayTimeToToggleHide < 0)
+        {
+            player.delayTimeToToggleHide = 0;
+            return;
+        }
+        else
+        {
+            player.delayTimeToToggleHide -= Time.deltaTime;
         }
     }
 

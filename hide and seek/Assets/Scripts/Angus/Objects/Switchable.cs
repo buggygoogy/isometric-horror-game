@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Switchable : interactable
+public class Switchable : ItemToInteract
 {
     public bool Switch;
     public new Light light;

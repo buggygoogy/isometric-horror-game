@@ -36,6 +36,28 @@ public class PlayerIdleState : PlayerState
             player.PlayerMove(player.moveVelocity);
         }
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (player.delayTimeToToggleHide > 0)
+                return;
+            if (player.hidingTarget != null)
+            {
+                player.hidingTarget.Interact();
+                player.stateMachine.ChangeState(player.HidingState);
+                player.IsHiding = true;
+                player.delayTimeToToggleHide = 2f;
+            }
+        }
+        if (player.delayTimeToToggleHide < 0)
+        {
+            player.delayTimeToToggleHide = 0;
+            return;
+        }
+        else
+        {
+            player.delayTimeToToggleHide -= Time.deltaTime;
+        }
+
 
 
     }

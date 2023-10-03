@@ -20,6 +20,10 @@ public class Player : MonoBehaviour, IHideable, IDamageable, Imoveable
 
     public int walkSpeed = 3;
 
+
+    [field:SerializeField]public HideableObject hidingTarget { get; set; }
+    [field:SerializeField]public float delayTimeToToggleHide { get; set; }
+
     #region StateMachineVariables
     public PlayerStateMachine stateMachine { get; set; }
     public PlayerIdleState IdleState { get; set; }
@@ -61,7 +65,6 @@ public class Player : MonoBehaviour, IHideable, IDamageable, Imoveable
     public void SetHide(IHideable.HidingType _hidingType)
     {
         _hiding = _hidingType;
-        this.stateMachine.ChangeState(this.HidingState);
 
     }
 
