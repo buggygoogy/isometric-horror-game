@@ -30,7 +30,7 @@ public class Player : MonoBehaviour, IHideable, IDamageable, Imoveable, Iinterac
     public PlayerWalkState WalkState { get; set; }
     public PlayerRunState RunState { get; set; }
     public PlayerHidingState HidingState { get; set; }
-    public ItemToInteract InteractItem { get; set; }
+    [field: SerializeField] public ItemToInteract InteractItem { get; set; }
 
     #endregion
 
