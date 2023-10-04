@@ -47,7 +47,7 @@ public class HideableObject : ItemToHide
     {
         if(other.CompareTag("Player"))
         {
-            render.material = HighLight_material;
+            render.material = Normal_material;
             player.hidingTarget = null;
         }
     }

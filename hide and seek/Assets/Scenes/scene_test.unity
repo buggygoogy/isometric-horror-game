@@ -4143,7 +4143,7 @@ MonoBehaviour:
   Switch: 1
   _light: {fileID: 1874032087}
   LightPower: 2
-  smoothTime: 0.2
+  smoothTime: 1
 --- !u!1001 &1129636194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4340,7 +4340,7 @@ MonoBehaviour:
   Switch: 0
   _light: {fileID: 784239703}
   LightPower: 2
-  smoothTime: 0.2
+  smoothTime: 1
 --- !u!1 &1168185928
 GameObject:
   m_ObjectHideFlags: 0
@@ -5145,7 +5145,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.7830189, g: 0.7464823, b: 0.5495906, a: 1}
-  m_Intensity: 2.47
+  m_Intensity: 0
   m_Range: 6.4
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -5831,7 +5831,7 @@ MonoBehaviour:
   Switch: 1
   _light: {fileID: 1436429144}
   LightPower: 2
-  smoothTime: 0.2
+  smoothTime: 1
 --- !u!1 &1472801195
 GameObject:
   m_ObjectHideFlags: 0
@@ -7688,7 +7688,7 @@ MonoBehaviour:
   Switch: 0
   _light: {fileID: 1337680644}
   LightPower: 2.47
-  smoothTime: 0.2
+  smoothTime: 1
 --- !u!1 &1920963374
 GameObject:
   m_ObjectHideFlags: 0

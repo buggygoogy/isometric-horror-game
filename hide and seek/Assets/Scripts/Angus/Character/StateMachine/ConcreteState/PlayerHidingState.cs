@@ -26,7 +26,7 @@ public class PlayerHidingState : PlayerState
     }
     public override void FrameUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (player.delayTimeToToggleHide > 0)
                 return;
