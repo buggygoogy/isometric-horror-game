@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Policy;
 using UnityEngine;
 
-public class Player : MonoBehaviour, IHideable, IDamageable, Imoveable
+public class Player : MonoBehaviour, IHideable, IDamageable, Imoveable, Iinteractable
 {
     [field:SerializeField] public bool IsHiding { get; set ; }
     public int Hp { get ; set; }
@@ -30,6 +30,7 @@ public class Player : MonoBehaviour, IHideable, IDamageable, Imoveable
     public PlayerWalkState WalkState { get; set; }
     public PlayerRunState RunState { get; set; }
     public PlayerHidingState HidingState { get; set; }
+    public ItemToInteract InteractItem { get; set; }
 
     #endregion
 
@@ -93,6 +94,13 @@ public class Player : MonoBehaviour, IHideable, IDamageable, Imoveable
     public void PlayerMove(Vector3 moveVelocity)
     {
         rb.velocity = moveVelocity * walkSpeed;
+    }
+    public void ItemInteract()
+    {
+        if(InteractItem != null)
+        {
+            InteractItem.Interact();
+        }
     }
 
     #region AnimationTriggerTypes

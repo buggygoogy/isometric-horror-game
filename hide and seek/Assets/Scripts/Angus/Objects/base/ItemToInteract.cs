@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class ItemToInteract : MonoBehaviour
 {
+    protected Player player;
     public IEnumerator ResetTrigger()
     {
         GetComponent<BoxCollider>().isTrigger = false;

@@ -35,19 +35,19 @@ public class HideableObject : ItemToHide
         }
 
     }
-    private void OnTriggerEnter(Collider other)
+    public override void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             render.material = HighLight_material;
             player.hidingTarget = this;
         }
     }
-    private void OnTriggerExit(Collider other)
+    public override void OnTriggerExit(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            render.material = Normal_material;
+            render.material = HighLight_material;
             player.hidingTarget = null;
         }
     }

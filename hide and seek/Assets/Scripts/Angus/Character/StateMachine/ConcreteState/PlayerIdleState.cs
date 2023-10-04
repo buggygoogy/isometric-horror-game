@@ -36,7 +36,12 @@ public class PlayerIdleState : PlayerState
             player.PlayerMove(player.moveVelocity);
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            player.ItemInteract();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (player.delayTimeToToggleHide > 0)
                 return;

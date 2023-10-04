@@ -10,5 +10,15 @@ public abstract class ItemToHide : MonoBehaviour
 
     public abstract void Interact();
 
+    public virtual void OnTriggerEnter(Collider other)
+    {
+
+    }
+
+    public virtual void OnTriggerExit(Collider other)
+    {
+
+    }
+
 
 }
