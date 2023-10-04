@@ -18,7 +18,7 @@ public class Player : MonoBehaviour, IHideable, IDamageable, Imoveable
 
     [field: SerializeField] public IHideable.HidingType _hiding { get; set; }
 
-    public int walkSpeed = 3;
+    public float walkSpeed = 3;
 
 
     [field:SerializeField]public HideableObject hidingTarget { get; set; }

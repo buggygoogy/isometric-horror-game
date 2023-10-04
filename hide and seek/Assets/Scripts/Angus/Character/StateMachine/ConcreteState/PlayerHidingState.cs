@@ -17,6 +17,7 @@ public class PlayerHidingState : PlayerState
     public override void EnterState()
     {
         base.EnterState();
+        player.IsHiding = true;
     }
 
     public override void ExitState()

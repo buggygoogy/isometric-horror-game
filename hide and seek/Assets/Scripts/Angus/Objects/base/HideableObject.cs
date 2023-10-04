@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class HideableObject : ItemToHide
 {
+    [SerializeField] private Material Normal_material;
+    [SerializeField] private Material HighLight_material;
+
+    public Renderer render;
     public enum HidingType
     {
         Bed,
         Cabinet
     }
     [SerializeField] HidingType type;
+
+    private void Start()
+    {
+        player = FindObjectOfType<Player>();
+        render = GetComponent<Renderer>();
+    }
 
     public override void Interact()
     {
@@ -29,6 +39,7 @@ public class HideableObject : ItemToHide
     {
         if(other.CompareTag("Player"))
         {
+            render.material = HighLight_material;
             player.hidingTarget = this;
         }
     }
@@ -36,6 +47,7 @@ public class HideableObject : ItemToHide
     {
         if(other.CompareTag("Player"))
         {
+            render.material = Normal_material;
             player.hidingTarget = null;
         }
     }

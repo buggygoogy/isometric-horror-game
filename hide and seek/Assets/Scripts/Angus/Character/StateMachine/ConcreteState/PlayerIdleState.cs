@@ -44,7 +44,6 @@ public class PlayerIdleState : PlayerState
             {
                 player.hidingTarget.Interact();
                 player.stateMachine.ChangeState(player.HidingState);
-                player.IsHiding = true;
                 player.delayTimeToToggleHide = 2f;
             }
         }
