@@ -17,7 +17,6 @@ public class PlayerHidingState : PlayerState
     public override void EnterState()
     {
         base.EnterState();
-        player.IsHiding = true;
     }
 
     public override void ExitState()
@@ -26,23 +25,7 @@ public class PlayerHidingState : PlayerState
     }
     public override void FrameUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (player.delayTimeToToggleHide > 0)
-                return;
-            player.SetUnHide(IHideable.HidingType.None);
-            player.stateMachine.ChangeState(player.IdleState);
-            player.IsHiding = false;
-        }
-        if (player.delayTimeToToggleHide < 0)
-        {
-            player.delayTimeToToggleHide = 0;
-            return;
-        }
-        else
-        {
-            player.delayTimeToToggleHide -= Time.deltaTime;
-        }
+        
     }
 
     public override void PhysicsUpdate()

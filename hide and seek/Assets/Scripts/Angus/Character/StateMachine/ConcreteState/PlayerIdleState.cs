@@ -27,53 +27,17 @@ public class PlayerIdleState : PlayerState
     public override void FrameUpdate()
     {
         base.FrameUpdate();
-        if(GetInputVelocity())
-        {
-            player.stateMachine.ChangeState(player.WalkState);
-        }
-        else
-        {
-            player.PlayerMove(player.moveVelocity);
-        }
 
-        if(Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             player.ItemInteract();
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (player.delayTimeToToggleHide > 0)
-                return;
-            if (player.hidingTarget != null)
-            {
-                player.hidingTarget.Interact();
-                player.stateMachine.ChangeState(player.HidingState);
-                player.delayTimeToToggleHide = 2f;
-            }
-        }
-        if (player.delayTimeToToggleHide < 0)
-        {
-            player.delayTimeToToggleHide = 0;
-            return;
-        }
-        else
-        {
-            player.delayTimeToToggleHide -= Time.deltaTime;
-        }
-
-
 
     }
 
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
-    }
-
-    public bool GetInputVelocity()
-    {
-        return player.moveVelocity != Vector3.zero;
     }
 
 }

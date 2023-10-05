@@ -26,10 +26,10 @@ public class HideableObject : ItemToHide
         switch (type)
         {
             case HidingType.Bed:
-                player.SetHide(IHideable.HidingType.Bed);
+                player.SetHide(Player.HidingType.Bed);
                 break;
             case HidingType.Cabinet:
-                player.SetHide(IHideable.HidingType.Cabinet);
+                player.SetHide(Player.HidingType.Cabinet);
                 break;
 
         }
