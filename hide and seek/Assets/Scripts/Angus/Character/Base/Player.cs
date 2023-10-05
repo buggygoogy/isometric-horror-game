@@ -10,11 +10,10 @@ public class Player : MonoBehaviour,  IDamageable, Iinteractable
     public int currentHp { get; set; }
     public Rigidbody rb { get ; set ; }
 
-    public float angle { get; set; }
+    [field: SerializeField] public float angle { get; set; }
 
-    [SerializeField]public HideableObject hidingTarget { get; set; }
-
-    [SerializeField] public ItemToInteract InteractItem { get; set; }
+    [field: SerializeField] public HideableObject hidingTarget { get; set; }
+    [field:SerializeField] public float delayTimeToToggleHide { get; set; }
 
     public enum HidingType
     {
@@ -23,7 +22,9 @@ public class Player : MonoBehaviour,  IDamageable, Iinteractable
         Cabinet
     }
 
-    [SerializeField] private HidingType _hiding;
+    public HidingType _hiding;
+
+    [field:SerializeField] public ItemToInteract InteractItem { get; set; }
 
     #region StateMachineVariables
     public PlayerStateMachine stateMachine { get; set; }
@@ -32,20 +33,8 @@ public class Player : MonoBehaviour,  IDamageable, Iinteractable
 
     #endregion
 
-    #region ScriptableObject Variables
-    [SerializeField] private PlayerIdleSOBase playerIdleBase;
-    [SerializeField] private PlayerHidingSOBase playerHidingBase;
-
-    public PlayerIdleSOBase PlayerIdleBaseInstance { get; set; }
-    public PlayerHidingSOBase PlayerHidingBaseInstance { get; set; }
-
-
-    #endregion
-
     private void Awake()
     {
-        PlayerIdleBaseInstance = Instantiate(playerIdleBase);
-        PlayerHidingBaseInstance = Instantiate(playerHidingBase);
 
         stateMachine = new PlayerStateMachine();
 
@@ -56,9 +45,6 @@ public class Player : MonoBehaviour,  IDamageable, Iinteractable
     {
         rb = GetComponent<Rigidbody>();
         stateMachine.Initialize(IdleState);
-
-        PlayerIdleBaseInstance.Intialize(gameObject, this);
-        PlayerHidingBaseInstance.Intialize(gameObject, this);
 
     }
 
@@ -84,16 +70,6 @@ public class Player : MonoBehaviour,  IDamageable, Iinteractable
         _hiding = _hidingType;
     }
 
-    public void Damage()
-    {
-
-    }
-
-    public void Die()
-    {
-
-    }
-
     public void PlayerRotate(Vector2 facingDirection)
     {
         angle = Mathf.Atan2(facingDirection.x, facingDirection.y);
@@ -111,6 +87,16 @@ public class Player : MonoBehaviour,  IDamageable, Iinteractable
         {
             InteractItem.Interact();
         }
+    }
+
+    public void Damage()
+    {
+
+    }
+
+    public void Die()
+    {
+
     }
 
     #region AnimationTriggerTypes
