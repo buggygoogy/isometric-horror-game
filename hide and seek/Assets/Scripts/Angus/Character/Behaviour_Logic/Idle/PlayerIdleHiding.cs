@@ -36,14 +36,13 @@ public class PlayerIdleHiding : PlayerIdleSOBase
                 delayTimeToToggleHide = 2f;
             }
         }
-        if (delayTimeToToggleHide < 0)
+        if (delayTimeToToggleHide > 0)
         {
-            delayTimeToToggleHide = 0;
-            return;
+            delayTimeToToggleHide -= Time.deltaTime;
         }
         else
         {
-            delayTimeToToggleHide -= Time.deltaTime;
+            delayTimeToToggleHide = 0;
         }
     }
 

@@ -9861,13 +9861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <IsHiding>k__BackingField: 0
-  <facingDirection>k__BackingField: {x: 0, y: 0}
-  <moveVelocity>k__BackingField: {x: 0, y: 0, z: 0}
-  <_hiding>k__BackingField: 0
-  walkSpeed: 2.5
-  <hidingTarget>k__BackingField: {fileID: 0}
-  <delayTimeToToggleHide>k__BackingField: 0
-  <InteractItem>k__BackingField: {fileID: 0}
+  _hiding: 0
 --- !u!137 &422340992930071361
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

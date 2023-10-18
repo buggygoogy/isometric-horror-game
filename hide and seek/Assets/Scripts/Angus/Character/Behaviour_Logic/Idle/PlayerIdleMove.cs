@@ -26,16 +26,7 @@ public class PlayerIdleMove : PlayerIdleSOBase
 
     public override void DoFrameUpdateLogic()
     {
-        moveVelocity = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
-        facingDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        base.DoFrameUpdateLogic();
 
-
-        if (GetInputVelocity())
-        {
-            player.PlayerMove(moveVelocity, walkSpeed);
-            player.PlayerRotate(facingDirection);
-        }
     }
 
     public override void DoPhysicsUpdateLogic()
@@ -51,10 +42,5 @@ public class PlayerIdleMove : PlayerIdleSOBase
     public override void ResetValue()
     {
         base.ResetValue();
-    }
-
-    public bool GetInputVelocity()
-    {
-        return moveVelocity != Vector3.zero;
     }
 }

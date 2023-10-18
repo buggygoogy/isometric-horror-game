@@ -16,16 +16,32 @@ public class PlayerHidingState : PlayerState
 
     public override void EnterState()
     {
-        base.EnterState();
+        player.IsHiding = true;
     }
 
     public override void ExitState()
     {
-        base.ExitState();
+        
     }
     public override void FrameUpdate()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if (player.delayTimeToToggleHide > 0)
+                return;
+            player.IsHiding = false;
+            player.SetUnHide(Player.HidingType.None);
+            player.stateMachine.ChangeState(player.IdleState);
+            player.delayTimeToToggleHide = 2f;
+        }
+        if (player.delayTimeToToggleHide > 0)
+        {
+            player.delayTimeToToggleHide -= Time.deltaTime;
+        }
+        else
+        {
+            player.delayTimeToToggleHide = 0;
+        }
     }
 
     public override void PhysicsUpdate()
