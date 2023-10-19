@@ -110,7 +110,6 @@ public class Player : MonoBehaviour,  IDamageable, Iinteractable
     {
         Idle,
         Walk,
-        Run,
         Hide,
         UnHide,
 
