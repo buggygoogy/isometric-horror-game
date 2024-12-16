@@ -10,11 +10,6 @@ public class CameraFollow : MonoBehaviour
     public GameObject _Camera;
     public float moveSpeed;
 
-    private void Start()
-    {
-        
-    }
-
     private void Update()
     {
         targetPos = Target.transform.position + offsetPos;
