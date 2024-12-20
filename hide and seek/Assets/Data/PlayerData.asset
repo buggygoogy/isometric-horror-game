@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: b261ef76014f16a4ca7c99e8b7ab32a5, type: 3}
   m_Name: PlayerData
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerData
+  m_EditorClassIdentifier: 
   hp: 3
-  walkSpeed: 1.5
-  runSpeed: 2.1
+  walkSpeed: 1.2
+  runSpeed: 1.6
