@@ -16,6 +16,8 @@ public class MoveState : Istate
 
     public void Update()
     {
+        player.GroundedCheck();
+
         Vector2 moveInput = player.Input.move;
         player.Move(moveInput, player.Data.walkSpeed);
 
