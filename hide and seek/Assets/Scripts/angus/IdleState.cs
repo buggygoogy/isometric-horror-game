@@ -15,7 +15,6 @@ public class IdleState : Istate
 
     public void Update()
     {
-        player.GroundedCheck();
         if (player.Input.move.sqrMagnitude != 0f)
         {
             player.stateMachine.ChangeState(new MoveState(player));

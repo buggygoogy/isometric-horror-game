@@ -12,6 +12,5 @@ public class StateMachine
     public void Update()
     {
         currentState?.Update();
-        Debug.Log(currentState);
     }
 }

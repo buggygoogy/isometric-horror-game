@@ -16,16 +16,11 @@ public class PlayerController : MonoBehaviour
     public playerInput Input { get; private set; }
     public StateMachine stateMachine { get; private set; }
 
+    float gravity = -9.81f;
+
+    float verticalVelocity = 0f;
+
     private CharacterController controller;
-
-    private float gravity = -9.81f;
-    private float verticalVelocity = 0f;
-    public bool Grounded = true;
-
-    public float GroundedOffset = -0.14f;
-
-    public float GroundedRadius = 0.28f;
-    public LayerMask GroundLayers;
 
 
     private void Start()
@@ -38,31 +33,28 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        UpdateGravity();
         stateMachine.Update();
-    }
-
-    public void GroundedCheck()
-    {
-        Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset,
-                transform.position.z);
-        Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers,
-            QueryTriggerInteraction.Ignore);
-
-        if (Grounded)
-        {
-            verticalVelocity = 0f; // 回到地面時重設垂直速度
-        }
-        else
-        {
-            // 如果不在地面上，受重力影響
-            verticalVelocity += gravity * Time.deltaTime;
-        }
     }
     public void Move(Vector2 direction, float speed)
     {
         Vector3 horizontalMove = new Vector3(direction.x, 0f, direction.y) * speed;
-        Vector3 move = horizontalMove + Vector3.up * verticalVelocity;
+        Vector3 move = horizontalMove;
 
         controller.Move(move * Time.deltaTime);
+    }
+    public void UpdateGravity()
+    {
+        if (controller.isGrounded)
+        {
+            verticalVelocity = 0f;
+        }
+        else
+        {
+
+            verticalVelocity += gravity * Time.deltaTime;
+        }
+        Vector3 verticalMove = Vector3.up * verticalVelocity * Time.deltaTime;
+        controller.Move(verticalMove);
     }
 }
