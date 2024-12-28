@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Callbacks;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
@@ -56,5 +57,24 @@ public class PlayerController : MonoBehaviour
         }
         Vector3 verticalMove = Vector3.up * verticalVelocity * Time.deltaTime;
         controller.Move(verticalMove);
+    }
+    public void RotateDirections(Vector2 direction)
+    {
+
+        if (direction.sqrMagnitude < 0.001f) return;
+
+
+        float rotationSpeed = 10f; // 調整旋轉速度
+
+        Vector3 dir3D = new Vector3(direction.x, 0f, direction.y).normalized;
+        if (dir3D.sqrMagnitude > 0.001f)
+        {
+            Quaternion targetRot = Quaternion.LookRotation(dir3D, Vector3.up);
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                targetRot,
+                Time.deltaTime * rotationSpeed
+            );
+        }
     }
 }

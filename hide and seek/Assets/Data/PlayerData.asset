@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   hp: 3
-  walkSpeed: 1.2
-  runSpeed: 1.6
+  walkSpeed: 0.3
+  runSpeed: 0.6

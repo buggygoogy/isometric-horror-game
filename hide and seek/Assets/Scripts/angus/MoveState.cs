@@ -19,6 +19,7 @@ public class MoveState : Istate
 
         Vector2 moveInput = player.Input.move;
         player.Move(moveInput, player.Data.walkSpeed);
+        player.RotateDirections(moveInput);
 
         if (moveInput.sqrMagnitude == 0f)
         {
