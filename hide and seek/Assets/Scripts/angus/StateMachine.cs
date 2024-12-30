@@ -8,6 +8,7 @@ public class StateMachine
         currentState?.Exit();
         currentState = newState;
         currentState?.Enter();
+        Debug.Log(currentState);
     }
     public void Update()
     {

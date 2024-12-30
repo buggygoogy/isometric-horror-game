@@ -8,6 +8,13 @@ using UnityEngine.InputSystem;
 public class PlayerData : ScriptableObject
 {
     public int hp;
-    public float walkSpeed;
-    public float runSpeed;
+
+    public float standSpeed;
+    public float standHeight;
+
+    public float crouchSpeed;
+    public float crouchHeight;
+
+    public float crawlSpeed;
+    public float crawlHeight;
 }

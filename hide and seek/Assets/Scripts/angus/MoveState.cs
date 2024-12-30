@@ -17,14 +17,14 @@ public class MoveState : Istate
     public void Update()
     {
 
-        Vector2 moveInput = player.Input.move;
-        player.Move(moveInput, player.Data.walkSpeed);
-        player.RotateDirections(moveInput);
+        // Vector2 moveInput = player.Input.move;
+        // player.Move(moveInput);
+        // player.RotateDirections(moveInput);
 
-        if (moveInput.sqrMagnitude == 0f)
-        {
-            player.stateMachine.ChangeState(new IdleState(player));
-        }
+        // if (moveInput.sqrMagnitude == 0f)   
+        // {
+        //     player.stateMachine.ChangeState(new IdleState(player));
+        // }
     }
 
     public void Exit()

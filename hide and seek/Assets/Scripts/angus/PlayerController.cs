@@ -23,6 +23,10 @@ public class PlayerController : MonoBehaviour
 
     private CharacterController controller;
 
+    private float currentSpeed;
+
+
+
 
     private void Start()
     {
@@ -30,19 +34,18 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         currentHealth = playerdata.hp;
         stateMachine = new StateMachine();
-        stateMachine.ChangeState(new IdleState(this));
+        stateMachine.ChangeState(new StandState(this));
     }
     private void Update()
     {
         UpdateGravity();
         stateMachine.Update();
     }
-    public void Move(Vector2 direction, float speed)
+    public void Move(Vector2 movingDirection)
     {
-        Vector3 horizontalMove = new Vector3(direction.x, 0f, direction.y) * speed;
-        Vector3 move = horizontalMove;
+        Vector3 horizontalMove = new Vector3(movingDirection.x, 0f, movingDirection.y) * currentSpeed;
 
-        controller.Move(move * Time.deltaTime);
+        controller.Move(horizontalMove * Time.deltaTime);
     }
     public void UpdateGravity()
     {
@@ -52,7 +55,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-
             verticalVelocity += gravity * Time.deltaTime;
         }
         Vector3 verticalMove = Vector3.up * verticalVelocity * Time.deltaTime;
@@ -76,5 +78,14 @@ public class PlayerController : MonoBehaviour
                 Time.deltaTime * rotationSpeed
             );
         }
+    }
+    public void SetColliderHeight(float height)
+    {
+        controller.height = height;
+        // controller.center = new Vector3(0, height / 2f, 0);
+    }
+    public void SetMovementSpeed(float speed)
+    {
+        currentSpeed = speed;
     }
 }
