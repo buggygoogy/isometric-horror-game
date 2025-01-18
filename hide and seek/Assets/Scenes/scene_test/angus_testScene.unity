@@ -378,9 +378,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7d37c972a51614288067ef29fe0084, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 422340992926602199}
-  offsetPos: {x: 0, y: 12, z: -16}
-  moveSpeed: 2
+  target: {fileID: 422340992926602199}
+  distance: 5
+  height: 10
+  rotationSpeed: 100
+  player: {fileID: 422340992926896064}
 --- !u!850595691 &1389918928
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -1592,6 +1594,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   move: {x: 0, y: 0}
+  cameraRotation: 0
 --- !u!114 &422340992926896063
 MonoBehaviour:
   m_ObjectHideFlags: 0

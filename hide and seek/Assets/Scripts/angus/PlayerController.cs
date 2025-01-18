@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
 
+
     [SerializeField] private PlayerData playerdata;
     public PlayerData Data => playerdata;
 
@@ -25,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     private float currentSpeed;
 
+    public Camera MainCamera { get; private set; }
+
 
 
 
@@ -35,6 +38,7 @@ public class PlayerController : MonoBehaviour
         currentHealth = playerdata.hp;
         stateMachine = new StateMachine();
         stateMachine.ChangeState(new StandState(this));
+        MainCamera = Camera.main;
     }
     private void Update()
     {
@@ -79,6 +83,15 @@ public class PlayerController : MonoBehaviour
             );
         }
     }
+
+    public void RotateTowards(Vector3 direction)
+    {
+        if (direction.sqrMagnitude > 0.01f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+        }
+    }
     public void SetColliderHeight(float height)
     {
         controller.height = height;
@@ -87,5 +100,20 @@ public class PlayerController : MonoBehaviour
     public void SetMovementSpeed(float speed)
     {
         currentSpeed = speed;
+    }
+    public Vector3 GetCameraRelativeDirection(Vector2 inputDirection)
+    {
+        // 獲取攝影機的朝向向量
+        Vector3 cameraForward = MainCamera.transform.forward;
+        Vector3 cameraRight = MainCamera.transform.right;
+
+        // 確保方向只在 XZ 平面
+        cameraForward.y = 0f;
+        cameraRight.y = 0f;
+        cameraForward.Normalize();
+        cameraRight.Normalize();
+
+        // 計算輸入轉換到世界方向
+        return cameraForward * inputDirection.y + cameraRight * inputDirection.x;
     }
 }
