@@ -18,7 +18,7 @@ public class CrawlState : Istate
     {
         Vector2 moveInput = player.Input.move;
         player.Move(moveInput);
-        player.RotateDirections(moveInput);
+        // player.RotateDirections(moveInput);
 
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {

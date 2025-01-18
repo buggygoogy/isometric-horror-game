@@ -36,20 +36,20 @@ public class PlayerController : MonoBehaviour
         Input = GetComponent<playerInput>();
         controller = GetComponent<CharacterController>();
         currentHealth = playerdata.hp;
+        MainCamera = Camera.main;
         stateMachine = new StateMachine();
         stateMachine.ChangeState(new StandState(this));
-        MainCamera = Camera.main;
+        Debug.Log(MainCamera);
     }
     private void Update()
     {
         UpdateGravity();
         stateMachine.Update();
     }
-    public void Move(Vector2 movingDirection)
+    public void Move(Vector3 worldDirection)
     {
-        Vector3 horizontalMove = new Vector3(movingDirection.x, 0f, movingDirection.y) * currentSpeed;
-
-        controller.Move(horizontalMove * Time.deltaTime);
+        Vector3 move = worldDirection * currentSpeed;
+        controller.Move(move * Time.deltaTime);
     }
     public void UpdateGravity()
     {
@@ -63,34 +63,6 @@ public class PlayerController : MonoBehaviour
         }
         Vector3 verticalMove = Vector3.up * verticalVelocity * Time.deltaTime;
         controller.Move(verticalMove);
-    }
-    public void RotateDirections(Vector2 direction)
-    {
-
-        if (direction.sqrMagnitude < 0.001f) return;
-
-
-        float rotationSpeed = 10f; // 調整旋轉速度
-
-        Vector3 dir3D = new Vector3(direction.x, 0f, direction.y).normalized;
-        if (dir3D.sqrMagnitude > 0.001f)
-        {
-            Quaternion targetRot = Quaternion.LookRotation(dir3D, Vector3.up);
-            transform.rotation = Quaternion.Slerp(
-                transform.rotation,
-                targetRot,
-                Time.deltaTime * rotationSpeed
-            );
-        }
-    }
-
-    public void RotateTowards(Vector3 direction)
-    {
-        if (direction.sqrMagnitude > 0.01f)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
-        }
     }
     public void SetColliderHeight(float height)
     {
@@ -115,5 +87,14 @@ public class PlayerController : MonoBehaviour
 
         // 計算輸入轉換到世界方向
         return cameraForward * inputDirection.y + cameraRight * inputDirection.x;
+    }
+
+    public void RotateTowards(Vector3 direction)
+    {
+        if (direction.sqrMagnitude > 0.01f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+        }
     }
 }

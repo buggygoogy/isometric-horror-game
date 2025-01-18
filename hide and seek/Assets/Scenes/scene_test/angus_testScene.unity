@@ -183,7 +183,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 02e8f503307a57f4787e1def58dd2505, type: 2}
+  - {fileID: 2100000, guid: 81a1ac92dfc343a4c96fb35350b25aad, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -243,7 +243,7 @@ GameObject:
   - component: {fileID: 851145712}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -379,8 +379,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 422340992926602199}
-  distance: 5
-  height: 10
+  distance: 12
+  height: 7
   rotationSpeed: 100
   player: {fileID: 422340992926896064}
 --- !u!850595691 &1389918928

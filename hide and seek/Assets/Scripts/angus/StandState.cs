@@ -18,8 +18,9 @@ public class StandState : Istate
     {
 
         Vector2 moveInput = player.Input.move;
-        player.Move(moveInput);
-        player.RotateDirections(moveInput);
+        Vector3 worldDirection = player.GetCameraRelativeDirection(moveInput);
+        player.Move(worldDirection);
+        player.RotateTowards(worldDirection);
         
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
