@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class CameraFollow : MonoBehaviour
 {
+    private PlayerInputManager playerInput;
 
     [SerializeField] private Transform target;       // 角色的 Transform
     [SerializeField] private float distance = 5f;    // 與角色的距離
@@ -15,12 +16,36 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] private PlayerController player;
 
+    public float cameraRotation;
 
+    private void Start()
+    {
+        playerInput = FindObjectOfType<PlayerInputManager>();
+        player = FindObjectOfType<PlayerController>();
+        target = player.transform;
+
+        IntializeCamera();
+    }
+
+    private void IntializeCamera()
+    {
+        playerInput.RotateCamera += SetCameraRotation;
+    }
+
+    public void OnDisable()
+    {
+        playerInput.RotateCamera -= SetCameraRotation;
+    }
+
+    public void SetCameraRotation(float angle)
+    {
+        cameraRotation = angle;
+    }
 
     private void LateUpdate()
     {
-        
-        currentRotationAngle +=  player.Input.cameraRotation * rotationSpeed * Time.deltaTime;
+
+        currentRotationAngle += cameraRotation * rotationSpeed * Time.deltaTime;
 
         // 2. 計算攝影機位置
         Quaternion currentRotation = Quaternion.Euler(0f, currentRotationAngle, 0f); // 水平旋轉
@@ -29,6 +54,6 @@ public class CameraFollow : MonoBehaviour
 
         // 3. 更新攝影機位置和看向目標
         transform.position = cameraPosition;
-        transform.LookAt(target.position); 
+        transform.LookAt(target.position);
     }
 }
