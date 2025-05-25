@@ -82,11 +82,10 @@ public class PlayerController : MonoBehaviour
     {
         currentSpeed = speed;
     }
-    public void SetPlayerData(PlayerData data)
+    public void SetPlayerData(float height, float speed)
     {
-        playerdata = data;
-        SetMovementSpeed(data.standSpeed);
-        SetPlayerHeight(data.standHeight);
+        SetPlayerHeight(height);
+        SetMovementSpeed(speed);
     }
     public Vector3 GetCameraRelativeDirection(Vector2 inputDirection)
     {

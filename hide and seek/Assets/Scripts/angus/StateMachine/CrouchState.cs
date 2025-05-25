@@ -10,7 +10,7 @@ public class CrouchState : Istate
     }
     public void Enter()
     {
-        player.SetPlayerData(player.Data);
+        
     }
 
     public void Update()

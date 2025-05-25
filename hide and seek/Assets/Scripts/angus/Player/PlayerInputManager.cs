@@ -39,12 +39,20 @@ public class PlayerInputManager : MonoBehaviour
             crouchStateInput?.Invoke();
         }
     }
-    
+
     public void OnCrawl(InputValue value)
     {
         if (value.isPressed)
         {
             crawlStateInput?.Invoke();
+        }
+    }
+    public void OnInteract(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            // Handle interaction logic here
+            Debug.Log("Interact button pressed");
         }
     }
 }

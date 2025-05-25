@@ -10,7 +10,8 @@ public class StandState : Istate
     }
     public void Enter()
     {
-        player.SetPlayerData(player.Data);
+        PlayerData data = player.Data;
+        player.SetPlayerData(data.standHeight, data.standSpeed);
     }
 
     public void Update()
